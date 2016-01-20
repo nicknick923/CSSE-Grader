@@ -1,0 +1,69 @@
+﻿
+/**
+ This class is a digital stack where elements are added and removed from one
+ end only.
+
+ @author Jake Ira
+ */
+public class Stack
+{
+
+   private Node top;
+
+   /**
+    Constructor that creates an empty stack.
+    */
+   public Stack()
+   {
+      top = null;
+   }
+
+   /**
+    This method returns a boolean value of true if the stack is empty or false
+    if it is not empty.
+
+    @return A boolean value where true means empty and false means not empty.
+    */
+   public boolean isEmpty()
+   {
+      return top == null;
+   }
+
+   /**
+    This method adds an object to the top of the stack.
+
+    @param inObject The object to be added to the top of the
+    stack.
+    */
+   public void push(Object inObject)
+   {
+      top = new Node(inObject, top);
+   }
+
+   /**
+    This method returns the top object in the stack or if the stack is empty
+    it returns null.
+
+    @return The top object in the stack or null if the stack is empty.
+    */
+   public Object pop()
+   {
+      if (isEmpty())
+         return null;
+      else
+      {
+         Object x = top.info;
+         top = top.next;
+         return x;
+      }
+
+   }
+
+   /**
+    This method resets the stack.
+    */
+   public void clear()
+   {
+      top = null;
+   }
+}
