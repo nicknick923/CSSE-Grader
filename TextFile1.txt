@@ -1,69 +1,70 @@
 ﻿
 /**
- This class is a digital stack where elements are added and removed from one
- end only.
-
+This class stores all fractions and operations to be called upon later.
  @author Jake Ira
  */
 public class Stack
 {
 
-   private Node top;
+   private Object elements[];
+   private int top;
 
    /**
-    Constructor that creates an empty stack.
+    This method creates the stack and sets the top to 0.
+
+    @param size size of the stack
     */
-   public Stack()
+   public Stack(int size)
    {
-      top = null;
+      elements = new Object[size];
+      top = 0;
    }
 
    /**
-    This method returns a boolean value of true if the stack is empty or false
-    if it is not empty.
+    This method checks to see if the stack is empty.
 
-    @return A boolean value where true means empty and false means not empty.
+    @return true if the stack is empty and false if the stack is full
     */
    public boolean isEmpty()
    {
-      return top == null;
+      return top == 0;
    }
 
    /**
-    This method adds an object to the top of the stack.
+    Method checks to see if the stack is full.
 
-    @param inObject The object to be added to the top of the
-    stack.
+    @return true if the stack is full and false if the stack is empty
     */
-   public void push(Object inObject)
+   public boolean isFull()
    {
-      top = new Node(inObject, top);
+      return top == elements.length;
    }
 
    /**
-    This method returns the top object in the stack or if the stack is empty
-    it returns null.
+    This method adds a new element to the top of the array.
 
-    @return The top object in the stack or null if the stack is empty.
+    @param x element being added to the top of the array
+    */
+   public void push(Object x)
+   {
+      elements[top++] = x;
+   }
+
+   /**
+    This element removes the top element in the array.
+
+    @return element on the top of the array
     */
    public Object pop()
    {
-      if (isEmpty())
-         return null;
-      else
-      {
-         Object x = top.info;
-         top = top.next;
-         return x;
-      }
-
+      return elements[--top];
    }
 
    /**
-    This method resets the stack.
+    This method sets the top of the array equal to 0.
     */
    public void clear()
    {
-      top = null;
+      top = 0;
    }
 }

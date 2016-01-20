@@ -1,20 +1,28 @@
 ﻿Public Class Stack
+    Private elements(10000) As String
+    Private top As Integer
 
-    Private top As Node
-
+    Public Sub New()
+        For Each x As String In elements
+            x = vbNullString
+        Next
+        top = 0
+    End Sub
     Private Function isEmpty() As Boolean
-        Return top.Equals(vbNull)
+        Return top = 0
     End Function
 
     Private Sub push(inString As String)
-        top = New Node(inString, top)
+        elements(top) = inString
+        top += 1
     End Sub
 
     Private Function pop() As String
-        If (isEmpty()) Then
-            Return vbNullString
-        Else
-
-        End If
+        top -= 1
+        Return elements(top)
     End Function
+
+    Private Sub clear()
+        top = 0
+    End Sub
 End Class
