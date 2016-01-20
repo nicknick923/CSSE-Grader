@@ -15,6 +15,7 @@ Public Class Form1
         End If
     End Sub
 
+
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         OpenFileDialog1.FileName = TextBox1.Text
         OpenFileDialog1.FileName = "C:\Users\Jacob\Documents\1A.txt"
